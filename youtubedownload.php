@@ -1,6 +1,6 @@
 <?php
 class youtubedownload{
-		private $_url = null,$_name = null,$_downloadDir = "/mount/network/youtube/",$_errors = array();
+		private $_url = null,$_name = null,$_downloadDir = "youtube",$_errors = array();
 		public function __construct(){
 		}
 		public function download($url){
@@ -10,6 +10,7 @@ class youtubedownload{
 					echo "<pre>";
 					while( !feof($fp) ){
 						echo fread($fp, 1024);
+						ob_flush();
 						flush(); // you have to flush buffer
 					}
 					echo "</pre>";
@@ -26,6 +27,7 @@ class youtubedownload{
 					echo "<pre>";
 					while( !feof($fp) ){
 						echo fread($fp, 1024);
+						ob_flush();
 						flush(); // you have to flush buffer
 					}
 					echo "</pre>";
